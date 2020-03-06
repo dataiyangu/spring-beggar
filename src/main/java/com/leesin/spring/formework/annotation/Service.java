@@ -3,11 +3,9 @@ package com.leesin.spring.formework.annotation;
 import java.lang.annotation.*;
 
 /**
- * @description:
- * @author: Administrator
- * @date: Created in 2020/2/27 20:03
- * @version:
- * @modified By:
+ * 业务逻辑,注入接口
+ *
+ * @author Tom
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

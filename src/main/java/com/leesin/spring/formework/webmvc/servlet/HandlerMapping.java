@@ -1,49 +1,29 @@
 package com.leesin.spring.formework.webmvc.servlet;
 
+import lombok.Data;
+
 import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 20:46
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/1 16:46
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
-
+@Data
 public class HandlerMapping {
-    private Object controller;	//保存方法对应的实例
-    private Method method;		//保存映射的方法
-    private Pattern pattern;    //URL的正则匹配
+    //保存方法对应的实例
+    private Object controller;
+    //保存映射的方法
+    private Method method;
+    //URL的正则匹配
+    private Pattern pattern;
 
-    public HandlerMapping(Pattern pattern,Object controller, Method method) {
-        this.controller = controller;
+    public HandlerMapping(Pattern pattern, Object controller, Method method) {
         this.method = method;
         this.pattern = pattern;
-    }
-
-    public Object getController() {
-        return controller;
-    }
-
-    public void setController(Object controller) {
         this.controller = controller;
-    }
-
-    public Method getMethod() {
-        return method;
-    }
-
-    public void setMethod(Method method) {
-        this.method = method;
-    }
-
-    public Pattern getPattern() {
-        return pattern;
-    }
-
-    public void setPattern(Pattern pattern) {
-        this.pattern = pattern;
     }
 }
-

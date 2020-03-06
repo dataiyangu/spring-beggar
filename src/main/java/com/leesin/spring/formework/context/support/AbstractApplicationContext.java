@@ -1,14 +1,13 @@
 package com.leesin.spring.formework.context.support;
 
 /**
- * @description:
- * @author: Administrator
- * @date: Created in 2020/2/27 22:19
+ * @description:ioc容器的顶层设计
+ * @author: Leesin Dong
+ * @date: Created in 2020/2/29 21:42
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
-public class AbstractApplicationContext {
-    //受保护，只提供给子类重写
+public abstract class AbstractApplicationContext {
     public void refresh() throws Exception {
 
     }

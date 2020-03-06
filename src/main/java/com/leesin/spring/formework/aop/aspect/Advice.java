@@ -2,10 +2,10 @@ package com.leesin.spring.formework.aop.aspect;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 17:43
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/6 9:47
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 public interface Advice {
 }

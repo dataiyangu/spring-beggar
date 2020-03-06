@@ -4,10 +4,10 @@ import java.lang.reflect.Method;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 20:04
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/6 7:52
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 public interface JoinPoint {
     Object getThis();
@@ -17,6 +17,5 @@ public interface JoinPoint {
     Method getMethod();
 
     void setUserAttribute(String key, Object value);
-
     Object getUserAttribute(String key);
 }

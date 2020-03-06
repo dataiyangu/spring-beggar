@@ -4,12 +4,12 @@ import java.lang.annotation.*;
 
 /**
  * 请求url
- * @author Tom
  *
+ * @author Tom
  */
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface RequestMapping {
-	String value() default "";
+    String value() default "";
 }

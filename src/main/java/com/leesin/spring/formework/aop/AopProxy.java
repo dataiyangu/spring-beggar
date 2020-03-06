@@ -2,12 +2,13 @@ package com.leesin.spring.formework.aop;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 19:06
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/3 14:56
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 public interface AopProxy {
     Object getProxy();
+
     Object getProxy(ClassLoader classLoader);
 }

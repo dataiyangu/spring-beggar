@@ -4,35 +4,38 @@ import java.lang.reflect.Method;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 17:42
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/5 21:17
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
-public class AbstractAspectAdvice {
+public abstract class AbstractAspectAdvice {
+
     private Method aspectMethod;
     private Object aspectTarget;
+
     public AbstractAspectAdvice(Method aspectMethod, Object aspectTarget) {
         this.aspectMethod = aspectMethod;
         this.aspectTarget = aspectTarget;
     }
 
-    public Object invokeAdviceMethod(JoinPoint joinPoint, Object returnValue, Throwable tx) throws Throwable{
-        Class<?> [] paramTypes = this.aspectMethod.getParameterTypes();
-        if(null == paramTypes || paramTypes.length == 0){
+    protected Object invokeAdviceMethod(JoinPoint joinPoint, Object returnValue, Throwable tx) throws Throwable {
+        Class<?>[] parameterTypes = this.aspectMethod.getParameterTypes();
+        if (null == parameterTypes || parameterTypes.length == 0) {
             return this.aspectMethod.invoke(aspectTarget);
-        }else{
-            Object [] args = new Object[paramTypes.length];
-            for (int i = 0; i < paramTypes.length; i ++) {
-                if(paramTypes[i] == JoinPoint.class){
+        } else {
+            Object[] args = new Object[parameterTypes.length];
+            for (int i = 0; i < parameterTypes.length; i++) {
+                if (parameterTypes[i] == JoinPoint.class) {
                     args[i] = joinPoint;
-                }else if(paramTypes[i] == Throwable.class){
+                } else if (parameterTypes[i] == Throwable.class) {
                     args[i] = tx;
-                }else if(paramTypes[i] == Object.class){
+                } else if (parameterTypes[i] == Object.class) {
                     args[i] = returnValue;
                 }
             }
-            return this.aspectMethod.invoke(aspectTarget,args);
+            return this.aspectMethod.invoke(aspectTarget, args);
         }
     }
+
 }

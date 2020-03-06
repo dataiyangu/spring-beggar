@@ -6,10 +6,13 @@ import com.leesin.spring.formework.aop.intercept.MethodInvocation;
 import java.lang.reflect.Method;
 
 /**
- * Created by Tom on 2019/4/15.
+ * @description:
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/5 20:33
+ * @version:
+ * @modified By:
  */
 public class AfterThrowingAdviceInterceptor extends AbstractAspectAdvice implements Advice, MethodInterceptor {
-
 
     private String throwingName;
 
@@ -18,18 +21,17 @@ public class AfterThrowingAdviceInterceptor extends AbstractAspectAdvice impleme
     }
 
     @Override
-    public Object invoke(MethodInvocation mi) throws Throwable {
+    public Object invoke(MethodInvocation invocation) throws Throwable {
+
         try {
-            return mi.proceed();
-        }catch (Throwable e){
-            invokeAdviceMethod(mi,null,e.getCause());
-            throw e;
+            return invocation.proceed();
+        } catch (Throwable throwable) {
+            invokeAdviceMethod(invocation, null, throwable.getCause());
+            throw throwable;
         }
     }
 
-    public void setThrowName(String throwName){
+    public void setThrowName(String throwName) {
         this.throwingName = throwName;
     }
-
-
 }

@@ -3,14 +3,21 @@ package com.leesin.spring.formework.webmvc.servlet;
 import java.util.Map;
 
 /**
- * Created by Tom on 2019/4/13.
+ * @description:
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/1 19:12
+ * @version:
+ * @modified By:
  */
 public class ModelAndView {
 
     private String viewName;
-    private Map<String,?> model;
+    //参数的key value
+    private Map<String, ?> model;
 
-    public ModelAndView(String viewName) { this.viewName = viewName; }
+    public ModelAndView(String viewName) {
+        this.viewName = viewName;
+    }
 
     public ModelAndView(String viewName, Map<String, ?> model) {
         this.viewName = viewName;
@@ -20,7 +27,6 @@ public class ModelAndView {
     public String getViewName() {
         return viewName;
     }
-
 //    public void setViewName(String viewName) {
 //        this.viewName = viewName;
 //    }

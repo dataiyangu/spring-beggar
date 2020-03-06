@@ -9,13 +9,17 @@ import java.lang.reflect.Proxy;
 import java.util.List;
 
 /**
- * Created by Tom on 2019/4/14.
+ * @description:
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/3 14:57
+ * @version:
+ * @modified By:
  */
-public class JdkDynamicAopProxy implements  AopProxy,InvocationHandler{
+public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
 
     private AdvisedSupport advised;
 
-    public JdkDynamicAopProxy(AdvisedSupport config){
+    public JdkDynamicAopProxy(AdvisedSupport config) {
         this.advised = config;
     }
 
@@ -31,8 +35,13 @@ public class JdkDynamicAopProxy implements  AopProxy,InvocationHandler{
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        List<Object> interceptorsAndDynamicMethodMatchers = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method,this.advised.getTargetClass());
-        MethodInvocation invocation = new MethodInvocation(proxy,this.advised.getTarget(),method,args,this.advised.getTargetClass(),interceptorsAndDynamicMethodMatchers);
+        //为什么第一个参数是method，执行器链，before method after，所以这里将method作为key记录下，
+        //通过这个方法就能拿到这个执行器链的上下文
+        //责任链模式
+        List<Object> interceptorsAndDynamicInterceptionAdvice = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, this.advised.getTargetClass());
+        //methodInvocation 真正去调用方法逻辑的调用器
+        MethodInvocation invocation = new MethodInvocation(proxy, this.advised.getTarget(), method, args, this.advised.getTargetClass(), interceptorsAndDynamicInterceptionAdvice);
+        //
         return invocation.proceed();
     }
 }

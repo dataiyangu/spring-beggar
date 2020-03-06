@@ -8,12 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/27 22:21
+ * @author: Leesin Dong
+ * @date: Created in 2020/2/29 22:36
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 public class DefaultListableBeanFactory extends AbstractApplicationContext {
     //存储注册信息的BeanDefinition
-    protected final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String,BeanDefinition>();
+    //spring的IOC容器（伪IOC容器，真正的IOC容器是保存BeanWrapper的容器）
+    protected final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 }

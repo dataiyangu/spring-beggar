@@ -8,15 +8,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Tom on 2019/4/14.
+ * @description:
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/4 8:53
+ * @version:
+ * @modified By:
  */
 public class MethodInvocation implements JoinPoint {
-
-
     private Object proxy;
     private Method method;
     private Object target;
-    private Object [] arguments;
+    private Object[] arguments;
     private List<Object> interceptorsAndDynamicMethodMatchers;
     private Class<?> targetClass;
 
@@ -37,21 +39,21 @@ public class MethodInvocation implements JoinPoint {
         this.interceptorsAndDynamicMethodMatchers = interceptorsAndDynamicMethodMatchers;
     }
 
+    //真正执行拦截器连的方法,通过这里重复调用
     public Object proceed() throws Throwable {
         //如果Interceptor执行完了，则执行joinPoint
         if (this.currentInterceptorIndex == this.interceptorsAndDynamicMethodMatchers.size() - 1) {
-            return this.method.invoke(this.target,this.arguments);
+            return this.method.invoke(this.target, this.arguments);
         }
 
         Object interceptorOrInterceptionAdvice =
                 this.interceptorsAndDynamicMethodMatchers.get(++this.currentInterceptorIndex);
         //如果要动态匹配joinPoint
         if (interceptorOrInterceptionAdvice instanceof MethodInterceptor) {
-            MethodInterceptor mi =
-                    (MethodInterceptor) interceptorOrInterceptionAdvice;
+            MethodInterceptor mi = (MethodInterceptor) interceptorOrInterceptionAdvice;
             return mi.invoke(this);
         } else {
-            //动态匹配失败时,略过当前Intercetpor,调用下一个Interceptor
+            //动态匹配失败时，略过当前的Interceptor调用下一个Interceptor
             return proceed();
         }
     }

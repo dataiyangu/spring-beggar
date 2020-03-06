@@ -4,17 +4,17 @@ import lombok.Data;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 11:48
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/5 13:50
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 @Data
 public class AopConfig {
     private String pointCut;
-    private String aspectBefore;
-    private String aspectAfter;
     private String aspectClass;
+    private String aspectAfter;
+    private String aspectBefore;
     private String aspectAfterThrow;
     private String aspectAfterThrowingName;
 }

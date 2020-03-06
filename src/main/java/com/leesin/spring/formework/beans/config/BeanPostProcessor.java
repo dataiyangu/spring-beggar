@@ -2,17 +2,17 @@ package com.leesin.spring.formework.beans.config;
 
 /**
  * @description:
- * @author: Administrator
- * @date: Created in 2020/2/28 11:20
+ * @author: Leesin Dong
+ * @date: Created in 2020/3/1 14:09
  * @version:
- * @modified By: Leesin Dong
+ * @modified By:
  */
 public class BeanPostProcessor {
-    public Object postProcessBeforeInitialization(Object bean,String beanName) {
+    public Object postProcessBeforeInitiaLization(Object bean, String beanName) throws Exception {
         return bean;
     }
 
-    public Object postProcessAfterInitialization(Object bean,String beanName) {
+    public Object postProcessAfterInitiaLization(Object bean, String beanName) throws Exception {
         return bean;
     }
 }

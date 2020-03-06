@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
+
+	<classpath>
+		<dir name="F:/git_home/spring-beggar/target/spring-beggar/WEB-INF/classes">
+			<include name="application.properties"/>
+			<include name="layout/404.html"/>
+			<include name="layout/500.html"/>
+			<include name="layout/first.html"/>
+			<include name="webdefault.xml"/>
+		</dir>
+		<dir name="F:/git_home/spring-beggar/target/spring-beggar/WEB-INF/classes">
+			<include name="application.properties"/>
+			<include name="layout/404.html"/>
+			<include name="layout/500.html"/>
+			<include name="layout/first.html"/>
+			<include name="webdefault.xml"/>
+		</dir>
+		<dir name="F:/git_home/spring-beggar/src/main/resources">
+			<include name="**/*"/>
+		</dir>
+		<dir name="F:/git_home/spring-beggar/src/main/java">
+			<exclude name="**/*.java"/>
+			<exclude name="**/*.class"/>
+		</dir>
+		<dir name="F:/git_home/spring-beggar/target/classes">
+		</dir>
+	</classpath>
+
+	<web>
+		<link target="/">
+			<dir name="F:/git_home/spring-beggar/src/main/webapp">
+			</dir>
+		</link>
+	</web>
+
+</application>
